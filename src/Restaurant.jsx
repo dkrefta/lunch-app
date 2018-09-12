@@ -11,12 +11,6 @@ class Restaurant extends Component {
   }
 }
 
-Restaurant.propTypes = {
-  name: PropTypes.string,
-  votes: PropTypes.object,
-  user: PropTypes.object,
-  handleSelect: PropTypes.func,
-  handleDeselect: PropTypes.func
-};
+
 
 export default Restaurant;

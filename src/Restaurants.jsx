@@ -13,10 +13,4 @@ class Restaurants extends Component {
   }
 }
 
-Restaurants.propTypes = {
-  user: PropTypes,
-  restaurantsRef: PropTypes.object,
-  restaurants: PropTypes.object
-};
-
 export default Restaurants;

@@ -34,8 +34,5 @@ class NewRestaurant extends Component {
   }
 }
 
-NewRestaurant.propTypes = {
-  restaurantsRef: PropTypes.object
-};
 
 export default NewRestaurant;
