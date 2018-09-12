@@ -5,6 +5,8 @@ import SignIn from './SignIn';
 import NewRestaurant from './NewRestaurant';
 import Restaurants from './Restaurants';
 import './Application.css';
+import map from 'lodash/map'
+
 //const UserContext = React.createContext()
 
 
@@ -12,25 +14,30 @@ import './Application.css';
 class Application extends Component {
   state = {
     currentUser: null,
+    restaurants: null
   }
 
      async componentDidMount() {
+     const restaurantRef = database.ref('/restaurants')
      await auth.onAuthStateChanged((currentUser, user) => {
-      console.log('AuthChange', currentUser)
-      console.log(currentUser.displayName)
+       console.log('auth', currentUser)
+       console.log(currentUser.displayName)
       this.setState({
-        ...currentUser,
-        currentUser: user
+        currentUser
+      })
+        restaurantRef.once('value', (snapshot) => {
+        this.setState({
+          restaurants: snapshot.val()
+        })
       })
     })
+    
   }
   
 
   render() {
-    console.log(this.state.currentUser)
-    console.log(user)
     const {user} = this.props
-    const currentUser = this.state
+    const {currentUser, restaurants} = this.state
     return (
       <div className="Application">
         <header className="Application--header">
@@ -41,6 +48,7 @@ class Application extends Component {
             {currentUser && 
             <div>
               <NewRestaurant/>
+              <Restaurants restaurants={restaurants}/>
               <CurrentUser user={currentUser} />
             </div>
             }

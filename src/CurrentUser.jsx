@@ -2,6 +2,7 @@ import React from 'react';
 import { auth } from './firebase';
 import './CurrentUser.css';
 
+
 const CurrentUser = ({ user }) => {
   return (
     <div className="CurrentUser">
