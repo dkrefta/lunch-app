@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import map from 'lodash/map';
 import './Restaurant.css';
 

@@ -12,11 +12,10 @@ import './Application.css';
 class Application extends Component {
   state = {
     currentUser: null,
-    user: []
   }
 
-  async componentDidMount() {
-    await auth.onAuthStateChanged((currentUser, user) => {
+     async componentDidMount() {
+     await auth.onAuthStateChanged((currentUser, user) => {
       console.log('AuthChange', currentUser)
       console.log(currentUser.displayName)
       this.setState({
@@ -25,19 +24,27 @@ class Application extends Component {
       })
     })
   }
+  
 
   render() {
+    console.log(this.state.currentUser)
+    console.log(user)
     const {user} = this.props
     const currentUser = this.state
     return (
       <div className="Application">
         <header className="Application--header">
           <h1>Lunch App</h1>
+            </header>
           <div>
             {!currentUser && <SignIn />}
-            {currentUser && <CurrentUser user={currentUser} />}
+            {currentUser && 
+            <div>
+              <NewRestaurant/>
+              <CurrentUser user={currentUser} />
+            </div>
+            }
           </div>
-        </header>
       </div>
     );
   }

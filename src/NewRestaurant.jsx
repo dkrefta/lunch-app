@@ -1,13 +1,20 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import { database } from './firebase'
 import './NewRestaurant.css';
 
-class NewRestaurant extends Component {
-     state = {
-      name: ''
-    };
+const restaurantRef = database.ref('/restaurants')
 
-  handleSubmit(event) {
+class NewRestaurant extends Component {
+  state = {
+    name: ''
+  };
+
+  handleSubmit = (event) => {
     event.preventDefault();
+      restaurantRef.push({
+      name: this.state.name
+    })
+    console.log(this.state.name)
   }
 
   render() {
@@ -19,7 +26,7 @@ class NewRestaurant extends Component {
       >
         <input
           type="text"
-          value={ name }
+          value={name}
           placeholder="Name of Fine Establishment"
           onChange={(event) => this.setState({ name: event.target.value })}
         />
