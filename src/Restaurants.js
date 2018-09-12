@@ -4,9 +4,6 @@ import map from 'lodash/map';
 import './Restaurants.css';
 
 class Restaurants extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render () {
     return (

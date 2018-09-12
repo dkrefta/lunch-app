@@ -7,9 +7,6 @@ import Restaurants from './Restaurants';
 import './Application.css';
 
 class Application extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

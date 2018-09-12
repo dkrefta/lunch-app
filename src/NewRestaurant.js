@@ -2,14 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import './NewRestaurant.css';
 
 class NewRestaurant extends Component {
-  constructor() {
-    super();
-    this.state = {
+     state = {
       name: ''
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
 
   handleSubmit(event) {
     event.preventDefault();
