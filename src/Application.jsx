@@ -16,7 +16,6 @@ class Application extends Component {
   }
 
   async componentDidMount() {
-
     await auth.onAuthStateChanged((currentUser, user) => {
       console.log('AuthChange', currentUser)
       console.log(currentUser.displayName)

@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 
 const config = {
-  apiKey: "AIzaSyAujCIWeqnAthAoOfJ-4Ra766fJ9115b_E",
+    apiKey: "AIzaSyAujCIWeqnAthAoOfJ-4Ra766fJ9115b_E",
     authDomain: "lunch-app-f5ef9.firebaseapp.com",
     databaseURL: "https://lunch-app-f5ef9.firebaseio.com",
     projectId: "lunch-app-f5ef9",

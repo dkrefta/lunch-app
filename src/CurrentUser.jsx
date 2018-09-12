@@ -12,7 +12,8 @@ const CurrentUser = ({ user}) => {
       />
       {user.displayName}
       <div className='CurrentUser-identification'>
-
+       <h3> {user.displayName}</h3>
+       <p> {user.email}</p>
       </div>
     </div>
   );
