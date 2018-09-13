@@ -18,26 +18,31 @@ class Application extends Component {
   }
 
      async componentDidMount() {
-     const restaurantRef = database.ref('/restaurants')
+      const {restaurants} = this.state
+
      await auth.onAuthStateChanged((currentUser, user) => {
        console.log('auth', currentUser)
        console.log(currentUser.displayName)
       this.setState({
         currentUser
       })
-        restaurantRef.once('value', (snapshot) => {
+      database.ref('restaurants').on('value', (snapshot) => {
+        console.log(snapshot)
         this.setState({
           restaurants: snapshot.val()
         })
-      })
+    })
     })
     
   }
   
 
   render() {
+
     const {user} = this.props
     const {currentUser, restaurants} = this.state
+    console.log(restaurants)
+
     return (
       <div className="Application">
         <header className="Application--header">
@@ -45,10 +50,10 @@ class Application extends Component {
             </header>
           <div>
             {!currentUser && <SignIn />}
-            {currentUser && 
+             {currentUser && 
             <div>
-              <NewRestaurant/>
-              <Restaurants restaurants={restaurants}/>
+              <NewRestaurant restaurants={restaurants} />
+              <Restaurants restaurants={restaurants} user={currentUser} />
               <CurrentUser user={currentUser} />
             </div>
             }

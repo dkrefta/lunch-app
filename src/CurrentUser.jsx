@@ -11,7 +11,6 @@ const CurrentUser = ({ user }) => {
         src={user.photoURL}
         alt={user.displayName}
       />
-      {user.displayName}
       <div className='CurrentUser--identification'>
         <h3> {user.displayName}</h3>
         <p> {user.email}</p>

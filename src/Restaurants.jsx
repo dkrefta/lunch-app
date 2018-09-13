@@ -10,7 +10,10 @@ class Restaurants extends Component {
     return (
       <section className="Restaurants">
       {map(restaurants, (restaurant, key) => 
-      <Restaurant key={key} {...restaurant}/>
+      <Restaurant 
+      key={key} 
+      {...restaurant}
+      />
       )}
       </section>
     );

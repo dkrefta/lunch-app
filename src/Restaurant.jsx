@@ -7,7 +7,7 @@ class Restaurant extends Component {
     const {name} = this.props
     return (
       <article className="Restaurant">
-      <h3> {name} </h3>
+      <h2 className="Restaurant--name">{ name }</h2>
       </article>
     );
   }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { database } from './firebase'
 import './NewRestaurant.css';
 
-const restaurantRef = database.ref('/restaurants')
+const restaurantsRef = database.ref('/restaurants')
 
 class NewRestaurant extends Component {
   state = {
@@ -11,10 +11,10 @@ class NewRestaurant extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    
-      restaurantRef.push({
-      name: this.state.name
-    })
+    if (!this.state.name) return false;
+
+    restaurantsRef.push({ name: this.state.name });
+    this.setState({ name: '' });
     console.log(this.state.name)
   }
 
