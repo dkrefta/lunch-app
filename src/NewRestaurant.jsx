@@ -12,9 +12,10 @@ class NewRestaurant extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (!this.state.name) return false;
-
     restaurantsRef.push({ name: this.state.name });
-    this.setState({ name: '' });
+    this.setState({ 
+      name: ''
+     });
     console.log(this.state.name)
   }
 
